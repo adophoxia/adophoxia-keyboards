@@ -21,24 +21,33 @@
               "type": "dropdown",
               "content": ["id_qmk_rgb_matrix_effect", 3, 2],
               "options": [
-                ["None", 0],
-                ["SOLID_COLOR", 1],
-                ["BREATHING", 2],
-                ["CYCLE_ALL", 3],
-                ["CYCLE_LEFT_RIGHT", 4],
-                ["CYCLE_UP_DOWN", 5],
-                ["RAINBOW_MOVING_CHEVRON", 6],
-                ["CYCLE_OUT_IN", 7],
-                ["CYCLE_OUT_IN_DUAL", 8],
-                ["CYCLE_PINWHEEL", 9],
-                ["CYCKE_SPIRAL", 10],
-                ["DUAL_BEACON", 11],
-                ["RAINBOW_BEACON", 12],
-                ["RAINDROPS", 13]
+                ["00. None", 0],
+                ["01. SOLID_COLOR", 1],
+                ["02. BREATHING", 2],
+                ["03. BAND_SPIRAL_VAL", 3],
+                ["04. CYCLE_ALL", 4],
+                ["05. CYCLE_LEFT_RIGHT", 5],
+                ["06. CYCLE_UP_DOWN", 6],
+                ["07. RAINBOW_MOVING_CHEVRON", 7],
+                ["08. CYCLE_OUT_IN", 8],
+                ["09. CYCLE_OUT_IN_DUAL", 9],
+                ["10. CYCLE_PINWHEEL", 10],
+                ["11. CYCKE_SPIRAL", 11],
+                ["12. DUAL_BEACON", 12],
+                ["13. RAINBOW_BEACON", 13],
+                ["14. JELLYBEAN_RAINDROPS", 14],
+                ["15. PIXEL_RAIN", 15],
+                ["16. TYPING_HEATMAP", 16],
+                ["17. DIGITAL_RAIN", 17],
+                ["18. REACTIVE_SIMPLE", 18],
+                ["19. REACTIVE_MULTIWIDE", 19],
+                ["20. REACTIVE_MULTINEXUS", 20],
+                ["21. SPLASH", 21],
+                ["22. SOLID_SPLASH", 22]
               ]
             },
             {
-              "showIf": "{id_qmk_rgb_matrix_effect} != 0",
+              "showIf": "{id_qmk_rgb_matrix_effect} > 1",
               "label": "Effect Speed",
               "type": "range",
               "options": [0, 255],
@@ -56,54 +65,37 @@
     }
   ],
   "matrix": {"rows": 5, "cols": 15},
-  "customKeycodes": [
-    {
-      "name": "Mission Control",
-      "title": "Mission Control in macOS",
-      "shortName": "Mission Control"
-    },
-    {
-      "name": "Launch Pad",
-      "title": "Launch Pad in macOS",
-      "shortName": "Launch Pad"
-    },
-    {
-      "name": "Left Option",
-      "title": "Left Option in macOS",
-      "shortName": "Left Option"
-    },
-    {
-      "name": "Right Option",
-      "title": "Right Option in macOS",
-      "shortName": "Right Option"
-    },
-    {
-      "name": "Left Cmd",
-      "title": "Left Command in macOS",
-      "shortName": "Left Command"
-    },
-    {
-      "name": "Right Cmd",
-      "title": "Right Command in macOS",
-      "shortName": "Right Command"
-    },
-    {
-      "name": "Task View",
-      "title": "Task View in windows",
-      "shortName": "Task View"
-    },
-    {
-      "name": "File Explorer",
-      "title": "File Explorer in windows",
-      "shortName": "File Explorer"
-    }
+    "customKeycodes": [
+    {"name": "Mission Control", "title": "Mission Control in macOS", "shortName": "MCtrl"},
+    {"name": "Launch Pad",      "title": "Launch Pad in macOS",      "shortName": "LPad"},
+    {"name": "Left Option",     "title": "Left Option in macOS",     "shortName": "LOpt"},
+    {"name": "Right Option",    "title": "Right Option in macOS",    "shortName": "ROpt"},
+    {"name": "Left Cmd",        "title": "Left Command in macOS",    "shortName": "LCmd"},
+    {"name": "Right Cmd",       "title": "Right Command in macOS",   "shortName": "RCmd"},
+    {"name": "Siri",            "title": "Siri in macOS",            "shortName": "Siri"},
+    {"name": "Task View",       "title": "Task View in windows",     "shortName": "Task"},
+    {"name": "File Explorer",   "title": "File Explorer in windows", "shortName": "File"},
+    {"name": "Screen Shot",     "title": "Screenshot in macOS",      "shortName": "SShot"},
+    {"name": "Cortana",         "title": "Cortana in windows",       "shortName": "Cortana"}
   ],
   "layouts": {
     "keymap": [
       [
-        {"c": "#777777", "y": 0.25},
+        {
+          "x": 15.25,
+          "c": "#aaaaaa"
+        },
+        "0,14\n\n\n\n\n\n\n\n\ne0"
+      ],
+      [
+        {
+          "y": -0.75,
+          "c": "#777777"
+        },
         "0,0\nESC",
-        {"c": "#cccccc"},
+        {
+          "c": "#cccccc"
+        },
         "0,1",
         "0,2",
         "0,3",
@@ -116,19 +108,20 @@
         "0,10",
         "0,11",
         "0,12",
-        {"c": "#aaaaaa", "w": 2},
-        "0,13",
-        {"x": 0.25, "y": -0.25, "w": 0.75},
-        "0,14",
-        {"h": 0.5},
-        "4,7",
-        {"x": -1, "y": 0.5, "h": 0.5},
-        "4,8"
+        {
+          "c": "#aaaaaa",
+          "w": 2
+        },
+        "0,13"
       ],
       [
-        {"y": -0.25, "w": 1.5},
+        {
+          "w": 1.5
+        },
         "1,0",
-        {"c": "#cccccc"},
+        {
+          "c": "#cccccc"
+        },
         "1,1",
         "1,2",
         "1,3",
@@ -151,13 +144,20 @@
           "x2": -0.25
         },
         "1,13",
-        {"x": 0.25, "c": "#aaaaaa"},
+        {
+          "x": 0.25,
+          "c": "#aaaaaa"
+        },
         "1,14"
       ],
       [
-        {"w": 1.75},
+        {
+          "w": 1.75
+        },
         "2,0",
-        {"c": "#cccccc"},
+        {
+          "c": "#cccccc"
+        },
         "2,1",
         "2,2",
         "2,3",
@@ -170,13 +170,20 @@
         "2,10",
         "2,11",
         "2,13",
-        {"x": 1.5, "c": "#aaaaaa"},
+        {
+          "x": 1.5,
+          "c": "#aaaaaa"
+        },
         "2,14"
       ],
       [
-        {"w": 1.25},
+        {
+          "w": 1.25
+        },
         "3,0",
-        {"c": "#cccccc"},
+        {
+          "c": "#cccccc"
+        },
         "3,1",
         "3,2",
         "3,3",
@@ -188,25 +195,57 @@
         "3,9",
         "3,10",
         "3,11",
-        {"c": "#aaaaaa", "w": 1.75},
+        {
+          "c": "#aaaaaa",
+          "w": 1.75
+        },
         "3,13"
       ],
-      [{"y": -0.75, "x": 14.25, "c": "#777777"}, "3,14"],
       [
-        {"y": -0.25, "c": "#aaaaaa", "w": 1.24},
+        {
+          "y": -0.75,
+          "x": 14.25,
+          "c": "#777777"
+        },
+        "3,14"
+      ],
+      [
+        {
+          "y": -0.25,
+          "c": "#aaaaaa",
+          "w": 1.24
+        },
         "4,0",
-        {"w": 1.25},
+        {
+          "w": 1.25
+        },
         "4,1",
-        {"w": 1.25},
+        {
+          "w": 1.25
+        },
         "4,2",
-        {"c": "#cccccc", "w": 6.25},
+        {
+          "c": "#cccccc",
+          "w": 6.25
+        },
         "4,6",
-        {"c": "#aaaaaa", "a": 4},
+        {
+          "c": "#aaaaaa"
+        },
         "4,10",
         "4,11",
         "4,12"
       ],
-      [{"y": -0.75, "x": 13.25, "c": "#777777"}, "4,13", "2,12", "4,14"]
+      [
+        {
+          "y": -0.75,
+          "x": 13.25,
+          "c": "#777777"
+        },
+        "4,13",
+        "2,12",
+        "4,14"
+      ]
     ]
   }
 }
